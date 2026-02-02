@@ -1,0 +1,177 @@
+/* Import Bootstrap CSS */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* Custom styles for the public site */
+:root {
+    --primary-start: #1e3a8a; /* Dark blue */
+    --primary-end: #3b82f6; /* Light blue */
+    --primary-gradient: linear-gradient(135deg, var(--primary-start) 0%, var(--primary-end) 100%);
+    --primary-light: #dbeafe;
+    --primary-medium: #93c5fd;
+    --accent-color: #60a5fa;
+}
+
+body {
+    padding-top: 70px;
+    background: linear-gradient(to bottom, var(--primary-light) 0%, #ffffff 30%, #ffffff 100%);
+    background-attachment: fixed;
+}
+
+/* Navbar Gradient Background */
+.bg-primary-gradient {
+    background: var(--primary-gradient) !important;
+}
+
+/* Enhanced Navbar Styling */
+.navbar {
+    z-index: 1050; /* Ensure navbar is above other elements */
+}
+
+/* Nav Link Styling */
+.navbar .nav-link {
+    position: relative;
+    padding-inline: 0.75rem;
+    padding-block: 0.5rem;
+    color: rgba(255, 255, 255, .85) !important;
+    transition: all .2s ease;
+    border-radius: 0.5rem;
+}
+
+.navbar .nav-link:hover {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, .1);
+    transform: translateY(-1px);
+}
+
+.navbar .nav-link.active {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, .15);
+    font-weight: 600;
+}
+
+/* Brand Styling */
+.navbar-brand {
+    transition: transform .2s ease;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.02);
+}
+
+/* Navbar Shadow on Scroll (optional) */
+.navbar.shadow-sm {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, .15) !important;
+}
+
+/* Mobile Menu Spacing */
+@media (max-width: 991.98px) {
+    .navbar-nav {
+        padding-top: 1rem;
+        gap: 0.5rem;
+    }
+
+    .navbar .nav-link {
+        padding: 0.75rem 1rem;
+    }
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
+
+.map-container {
+    height: 500px;
+}
+
+/* Blue gradient buttons */
+.btn-primary {
+    background: var(--primary-gradient);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.3);
+}
+
+/* Blue gradient cards */
+.card {
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(30, 58, 138, 0.2) !important;
+}
+
+/* Blue gradient accents */
+.text-primary-gradient {
+    background: var(--primary-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Leaflet marker cluster styles */
+.marker-cluster-small {
+    background-color: rgba(181, 226, 140, 0.6);
+}
+.marker-cluster-small div {
+    background-color: rgba(110, 204, 57, 0.6);
+}
+
+.marker-cluster-medium {
+    background-color: rgba(241, 211, 87, 0.6);
+}
+.marker-cluster-medium div {
+    background-color: rgba(240, 194, 12, 0.6);
+}
+
+.marker-cluster-large {
+    background-color: rgba(253, 156, 115, 0.6);
+}
+.marker-cluster-large div {
+    background-color: rgba(241, 128, 23, 0.6);
+}
+
+/* The 'add' button in the cluster */
+.marker-cluster {
+    background-clip: padding-box;
+    border-radius: 20px;
+}
+.marker-cluster div {
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    margin-top: 5px;
+
+    text-align: center;
+    border-radius: 15px;
+    font: 12px "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+.marker-cluster span {
+    line-height: 30px;
+}
+
+/* Custom scrollbar for blue theme */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-medium);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-start);
+}
