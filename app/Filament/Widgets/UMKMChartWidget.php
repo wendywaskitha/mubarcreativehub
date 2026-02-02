@@ -7,7 +7,7 @@ use Leandrocfe\FilamentApexCharts\Widgets\ApexChartWidget;
 
 class UMKMChartWidget extends ApexChartWidget
 {
-    protected static ?string $heading = 'Distribusi UMKM per Kecamatan';
+    protected static ?string $heading = 'Distribusi Pelaku Ekonomi Kreatif per Kecamatan';
     protected static ?string $chartId = 'umkmChartByKecamatan';
     protected int | string | array $columnSpan = 'full';
     protected static ?int $contentHeight = 300;
@@ -28,7 +28,7 @@ class UMKMChartWidget extends ApexChartWidget
                     'height' => 300,
                 ],
                 'series' => [[
-                    'name' => 'Jumlah UMKM',
+                    'name' => 'Jumlah Pelaku',
                     'data' => [0],
                 ]],
                 'xaxis' => [
@@ -39,7 +39,7 @@ class UMKMChartWidget extends ApexChartWidget
                 ],
                 'yaxis' => [
                     'title' => [
-                        'text' => 'Jumlah UMKM',
+                        'text' => 'Jumlah Pelaku',
                     ],
                 ],
             ];
@@ -51,7 +51,7 @@ class UMKMChartWidget extends ApexChartWidget
                 'height' => 300,
             ],
             'series' => [[
-                'name' => 'Jumlah UMKM',
+                'name' => 'Jumlah Pelaku',
                 'data' => $data->pluck('count')->toArray(),
             ]],
             'xaxis' => [
@@ -62,7 +62,7 @@ class UMKMChartWidget extends ApexChartWidget
             ],
             'yaxis' => [
                 'title' => [
-                    'text' => 'Jumlah UMKM',
+                    'text' => 'Jumlah Pelaku',
                 ],
             ],
         ];
