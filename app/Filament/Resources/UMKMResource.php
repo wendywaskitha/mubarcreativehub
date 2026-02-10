@@ -46,20 +46,20 @@ class UMKMResource extends Resource
                         ->schema([
                             Forms\Components\Section::make()
                                 ->schema([
-                                    Forms\Components\FileUpload::make('logo')
-                                        ->label('Logo/Foto Usaha')
-                                        ->image()
-                                        ->maxSize(2048)
-                                        ->directory('umkm-logos')
-                                        ->imageEditor()
-                                        ->imageEditorAspectRatios([
-                                            '1:1',
-                                            '16:9',
-                                        ])
-                                        ->circleCropper()
-                                        ->avatar()
-                                        ->helperText('Upload logo atau foto usaha (Maks. 2MB)')
-                                        ->columnSpanFull(),
+                                    // Forms\Components\FileUpload::make('logo')
+                                    //     ->label('Logo/Foto Usaha')
+                                    //     ->image()
+                                    //     ->maxSize(2048)
+                                    //     ->directory('umkm-logos')
+                                    //     ->imageEditor()
+                                    //     ->imageEditorAspectRatios([
+                                    //         '1:1',
+                                    //         '16:9',
+                                    //     ])
+                                    //     ->circleCropper()
+                                    //     ->avatar()
+                                    //     ->helperText('Upload logo atau foto usaha (Maks. 2MB)')
+                                    //     ->columnSpanFull(),
 
                                     Forms\Components\TextInput::make('nama_usaha')
                                         ->label('Nama Usaha')
