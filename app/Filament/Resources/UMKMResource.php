@@ -396,11 +396,11 @@ class UMKMResource extends Resource
                     ->rowIndex()
                     ->alignCenter(),
 
-                Tables\Columns\ImageColumn::make('logo')
-                    ->label('Logo')
-                    ->circular()
-                    ->defaultImageUrl(url('/images/default-store.png'))
-                    ->size(50),
+                // Tables\Columns\ImageColumn::make('logo')
+                //     ->label('Logo')
+                //     ->circular()
+                //     ->defaultImageUrl(url('/images/default-store.png'))
+                //     ->size(50),
 
                 Tables\Columns\TextColumn::make('nama_usaha')
                     ->label('Nama Usaha')
