@@ -39,9 +39,9 @@
                         <a href="{{ route('umkm.index') }}" class="btn btn-light btn-lg px-5 py-3 fw-semibold rounded-pill shadow-lg">
                             <i class="fas fa-store me-2"></i>Jelajahi
                         </a>
-                        <a href="{{ route('map.index') }}" class="btn btn-outline-light btn-lg px-5 py-3 fw-semibold rounded-pill border-2">
+                        {{-- <a href="{{ route('map.index') }}" class="btn btn-outline-light btn-lg px-5 py-3 fw-semibold rounded-pill border-2">
                             <i class="fas fa-map-marked-alt me-2"></i>Lihat di Peta
-                        </a>
+                        </a> --}}
                     </div>
 
                     <!-- Trust Indicators -->
