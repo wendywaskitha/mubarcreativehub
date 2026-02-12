@@ -33,7 +33,7 @@
                             <input type="text"
                                    name="search"
                                    class="form-control form-control-lg ps-5"
-                                   placeholder="Cari nama produk, kategori, atau UMKM..."
+                                   placeholder="Cari nama produk, kategori, atau Pelaku Ekraf..."
                                    value="{{ request('search') }}"
                                    style="border-radius: 12px; border: 2px solid #e5e7eb;">
                             <i class="fas fa-search position-absolute text-muted"
@@ -258,15 +258,8 @@
                             </div>
                             @endif
 
-                            <!-- Price and Stats -->
+                            <!-- Action Buttons -->
                             <div class="mt-auto">
-                                <div class="d-flex justify-content-between align-items-center mb-3">
-                                    <h5 class="fw-bold mb-0" style="color: #10b981; font-size: 1.25rem;">
-                                        Rp {{ number_format($product->harga, 0, ',', '.') }}
-                                    </h5>
-                                </div>
-
-                                <!-- Action Buttons -->
                                 <div class="d-grid gap-2">
                                     <a href="{{ route('produk.show', $product->id) }}"
                                        class="btn btn-primary btn-sm"

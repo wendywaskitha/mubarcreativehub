@@ -13,6 +13,8 @@ class Dashboard extends Page
 
     protected static ?string $navigationGroup = 'Analytics';
 
+    protected static bool $shouldRegisterNavigation = false;
+
     protected static ?int $navigationSort = 9;
 
     public static function getNavigationLabel(): string

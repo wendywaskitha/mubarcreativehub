@@ -18,7 +18,7 @@ class ProdukRelationManager extends RelationManager
 {
     protected static string $relationship = 'produks';
 
-    protected static ?string $title = 'Produk UMKM';
+    protected static ?string $title = 'Produk Pelaku Ekraf';
 
     protected static ?string $modelLabel = 'Produk';
 
@@ -55,37 +55,10 @@ class ProdukRelationManager extends RelationManager
                             ]),
                     ]),
 
-                Forms\Components\Section::make('Harga & Stok')
-                    ->description('Kelola harga dan ketersediaan produk')
-                    ->icon('heroicon-o-currency-dollar')
-                    ->collapsible()
-                    ->columns(3)
+                Forms\Components\Section::make('Kategori Produk')
+                    ->description('Pilih kategori yang sesuai untuk produk')
+                    ->icon('heroicon-o-tag')
                     ->schema([
-                        Forms\Components\TextInput::make('harga')
-                            ->label('Harga Jual')
-                            ->required()
-                            ->numeric()
-                            ->minValue(0)
-                            ->prefix('Rp')
-                            ->placeholder('0')
-                            ->helperText('Harga dalam Rupiah')
-                            ->live()
-                            ->afterStateUpdated(function ($state, Forms\Set $set) {
-                                if ($state) {
-                                    $formatted = number_format($state, 0, ',', '.');
-                                }
-                            }),
-
-                        Forms\Components\TextInput::make('stok')
-                            ->label('Jumlah Stok')
-                            ->required()
-                            ->numeric()
-                            ->minValue(0)
-                            ->default(0)
-                            ->placeholder('0')
-                            ->helperText('Jumlah unit tersedia')
-                            ->suffix('unit'),
-
                         Forms\Components\Select::make('kategori')
                             ->label('Kategori Produk')
                             ->options([
@@ -286,24 +259,6 @@ class ProdukRelationManager extends RelationManager
                     ->description(fn (Produk $record): string => $record->kategori ?? '-')
                     ->wrap(),
 
-                Tables\Columns\TextColumn::make('harga')
-                    ->label('Harga')
-                    ->money('IDR')
-                    ->sortable()
-                    ->weight(FontWeight::SemiBold)
-                    ->color('success'),
-
-                Tables\Columns\TextColumn::make('stok')
-                    ->label('Stok')
-                    ->numeric()
-                    ->sortable()
-                    ->suffix(' unit')
-                    ->badge()
-                    ->color(fn (string $state): string => match (true) {
-                        $state == 0 => 'danger',
-                        $state <= 10 => 'warning',
-                        default => 'success',
-                    }),
 
                 Tables\Columns\IconColumn::make('status_tersedia')
                     ->label('Tersedia')
@@ -358,15 +313,6 @@ class ProdukRelationManager extends RelationManager
                     ->falseLabel('Biasa')
                     ->native(false),
 
-                Tables\Filters\Filter::make('stok_rendah')
-                    ->label('Stok Rendah (≤ 10)')
-                    ->query(fn (Builder $query): Builder => $query->where('stok', '<=', 10))
-                    ->toggle(),
-
-                Tables\Filters\Filter::make('stok_habis')
-                    ->label('Stok Habis')
-                    ->query(fn (Builder $query): Builder => $query->where('stok', 0))
-                    ->toggle(),
             ])
             ->headerActions([
                 Tables\Actions\CreateAction::make()

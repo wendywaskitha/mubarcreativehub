@@ -1,6 +1,6 @@
 @extends('public.layouts.app')
 
-@section('title', 'Katalog UMKM - Mubar Creative Hub')
+@section('title', 'Katalog Ekraf - Mubar Creative Hub')
 
 @section('content')
 <div class="container py-5">
@@ -98,7 +98,7 @@
         <div class="col-12">
             <p class="text-muted mb-0">
                 <i class="fas fa-info-circle me-2"></i>
-                Menampilkan <strong>{{ $umkms->firstItem() }}</strong> - <strong>{{ $umkms->lastItem() }}</strong> dari <strong>{{ $umkms->total() }}</strong> UMKM terdaftar
+                Menampilkan <strong>{{ $umkms->firstItem() }}</strong> - <strong>{{ $umkms->lastItem() }}</strong> dari <strong>{{ $umkms->total() }}</strong> Pelaku Ekraf terdaftar
             </p>
         </div>
     </div>
@@ -193,8 +193,8 @@
             <div class="card border-0 shadow-sm text-center py-5" style="border-radius: 16px;">
                 <div class="card-body">
                     <i class="fas fa-store-slash fa-4x text-muted mb-4 opacity-50"></i>
-                    <h4 class="text-muted mb-2">Belum Ada UMKM Terdaftar</h4>
-                    <p class="text-muted mb-0">Saat ini belum ada UMKM yang terdaftar dengan kriteria pencarian Anda.</p>
+                    <h4 class="text-muted mb-2">Belum Ada Pelaku Ekraf Terdaftar</h4>
+                    <p class="text-muted mb-0">Saat ini belum ada Pelaku Ekraf yang terdaftar dengan kriteria pencarian Anda.</p>
                 </div>
             </div>
         </div>

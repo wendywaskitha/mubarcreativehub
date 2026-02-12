@@ -15,7 +15,6 @@ class Produk extends Model
         'nama_produk',
         'slug',
         'deskripsi',
-        'harga',
         'foto_1',
         'foto_2',
         'foto_3',
@@ -30,7 +29,6 @@ class Produk extends Model
 
     protected $casts = [
         'umkm_id' => 'integer',
-        'harga' => 'integer',
         'status_tersedia' => 'boolean',
         'is_featured' => 'boolean',
         'views' => 'integer',

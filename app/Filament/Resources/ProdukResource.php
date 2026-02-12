@@ -27,7 +27,7 @@ class ProdukResource extends Resource
 
     protected static ?string $modelLabel = 'Produk';
 
-    protected static ?string $pluralModelLabel = 'Produk UMKM';
+    protected static ?string $pluralModelLabel = 'Produk Pelaku Ekraf';
 
     protected static ?string $navigationGroup = 'Ekonomi Kreatif';
 
@@ -46,7 +46,7 @@ class ProdukResource extends Resource
                             ->icon('heroicon-o-information-circle')
                             ->schema([
                                 Forms\Components\Select::make('umkm_id')
-                                    ->label('UMKM Pemilik')
+                                    ->label('Pemilik')
                                     ->relationship('umkm', 'nama_usaha')
                                     ->required()
                                     ->searchable()
@@ -174,25 +174,6 @@ class ProdukResource extends Resource
 
                 Forms\Components\Group::make()
                     ->schema([
-                        Forms\Components\Section::make('Harga')
-                            ->description('Informasi harga produk')
-                            ->icon('heroicon-o-banknotes')
-                            ->schema([
-                                Forms\Components\TextInput::make('harga')
-                                    ->label('Harga Jual')
-                                    ->required()
-                                    ->numeric()
-                                    ->minValue(0)
-                                    ->placeholder('50000')
-                                    ->prefix('Rp')
-                                    ->prefixIcon('heroicon-o-currency-dollar')
-                                    ->helperText('Harga dalam Rupiah')
-                                    ->live(onBlur: true)
-                                    ->afterStateUpdated(function ($state, Forms\Set $set) {
-                                        // You can calculate discount, etc
-                                    })
-                                    ->columnSpanFull(),
-                            ]),
 
                         Forms\Components\Section::make('Status Produk')
                             ->description('Pengaturan tampil dan unggulan')
@@ -339,7 +320,7 @@ class ProdukResource extends Resource
                     ->limit(30),
 
                 Tables\Columns\TextColumn::make('umkm.nama_usaha')
-                    ->label('UMKM')
+                    ->label('Pelaku Ekraf')
                     ->searchable()
                     ->sortable()
                     ->badge()
@@ -360,13 +341,6 @@ class ProdukResource extends Resource
                     ->searchable()
                     ->toggleable(),
 
-                Tables\Columns\TextColumn::make('harga')
-                    ->label('Harga')
-                    ->money('IDR', divideBy: 1)
-                    ->sortable()
-                    ->icon('heroicon-o-banknotes')
-                    ->weight(FontWeight::SemiBold)
-                    ->color('warning'),
 
 
                 Tables\Columns\IconColumn::make('status_tersedia')
@@ -459,38 +433,6 @@ class ProdukResource extends Resource
                     ->indicator('Unggulan'),
 
 
-                Tables\Filters\Filter::make('harga')
-                    ->form([
-                        Forms\Components\TextInput::make('harga_min')
-                            ->label('Harga Minimal')
-                            ->numeric()
-                            ->prefix('Rp'),
-                        Forms\Components\TextInput::make('harga_max')
-                            ->label('Harga Maksimal')
-                            ->numeric()
-                            ->prefix('Rp'),
-                    ])
-                    ->query(function (Builder $query, array $data): Builder {
-                        return $query
-                            ->when(
-                                $data['harga_min'],
-                                fn (Builder $query, $price): Builder => $query->where('harga', '>=', $price),
-                            )
-                            ->when(
-                                $data['harga_max'],
-                                fn (Builder $query, $price): Builder => $query->where('harga', '<=', $price),
-                            );
-                    })
-                    ->indicateUsing(function (array $data): array {
-                        $indicators = [];
-                        if ($data['harga_min'] ?? null) {
-                            $indicators[] = 'Min: Rp ' . number_format($data['harga_min'], 0, ',', '.');
-                        }
-                        if ($data['harga_max'] ?? null) {
-                            $indicators[] = 'Max: Rp ' . number_format($data['harga_max'], 0, ',', '.');
-                        }
-                        return $indicators;
-                    }),
             ])
             ->filtersLayout(Tables\Enums\FiltersLayout::AboveContentCollapsible)
             ->persistFiltersInSession()
@@ -681,13 +623,6 @@ class ProdukResource extends Resource
                                         ->color('gray')
                                         ->icon('heroicon-o-tag'),
 
-                                    Components\TextEntry::make('harga')
-                                        ->label('Harga')
-                                        ->money('IDR')
-                                        ->size(Components\TextEntry\TextEntrySize::Large)
-                                        ->weight(FontWeight::Bold)
-                                        ->color('warning')
-                                        ->icon('heroicon-o-banknotes'),
 
                                 ])
                                 ->grow(true),
@@ -791,18 +726,12 @@ class ProdukResource extends Resource
                                 Components\TextEntry::make('created_at')
                                     ->label('Ditambahkan')
                                     ->dateTime('d F Y, H:i:s')
-                                    ->icon('heroicon-o-calendar')
-                                    ->description(fn (Produk $record): string =>
-                                        $record->created_at->diffForHumans()
-                                    ),
+                                    ->icon('heroicon-o-calendar'),
 
                                 Components\TextEntry::make('updated_at')
                                     ->label('Terakhir Diperbarui')
                                     ->dateTime('d F Y, H:i:s')
-                                    ->icon('heroicon-o-arrow-path')
-                                    ->description(fn (Produk $record): string =>
-                                        $record->updated_at->diffForHumans()
-                                    ),
+                                    ->icon('heroicon-o-arrow-path'),
                             ]),
                     ])
                     ->collapsible()
@@ -850,7 +779,6 @@ class ProdukResource extends Resource
         return [
             'UMKM' => $record->umkm->nama_usaha ?? '-',
             'Kategori' => $record->kategori ?? '-',
-            'Harga' => 'Rp ' . number_format($record->harga, 0, ',', '.'),
         ];
     }
 

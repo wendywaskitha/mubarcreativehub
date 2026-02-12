@@ -10,7 +10,7 @@
             <h1 class="display-4 fw-bold text-primary-gradient mb-3">
                 <i class="fas fa-newspaper me-2"></i>Blog & Artikel
             </h1>
-            <p class="lead text-muted">Informasi, tips, dan berita seputar UMKM Muna Barat</p>
+            <p class="lead text-muted">Informasi, tips, dan berita seputar Pelaku Ekonomi Kreatif Muna Barat</p>
         </div>
     </div>
 

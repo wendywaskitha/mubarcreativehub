@@ -180,7 +180,7 @@
                     <td style="width: 30%;">
                         <p style="text-align: center; font-size: 8px;">Laworo, {{ now()->format('d F Y') }}</p>
                         <p style="text-align: center; margin: 2px 0; font-size: 8px;">Mengetahui, </p>
-                        <p style="text-align: center; margin: 2px 0; font-size: 8px;">Kepala Dinas</p>
+                        <p style="text-align: center; margin: 2px 0; font-size: 8px;">Kepala Dinas Pariwisata dan Ekonomi Kreatif</p>
                         <p style="text-align: center; margin-top: 60px; font-weight: bold; font-size: 8px;">
                             {{ $signatureData['nama_kepala_dinas'] ?? '' }}</p>
                         <p style="text-align: center; margin: 2px 0; font-size: 8px;">{{ $signatureData['pangkat_gol'] ?? '' }}</p>

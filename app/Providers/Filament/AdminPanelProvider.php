@@ -40,7 +40,7 @@ class AdminPanelProvider extends PanelProvider
             ])
             ->plugins([
                 FilamentApexChartsPlugin::make(),
-                FilamentGoogleAnalyticsPlugin::make()
+                // FilamentGoogleAnalyticsPlugin::make()
 
             ])
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')

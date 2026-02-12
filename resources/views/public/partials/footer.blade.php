@@ -42,15 +42,15 @@
                         <li class="mb-2">
                             <a href="{{ route('umkm.index') }}" class="text-white text-decoration-none d-inline-flex align-items-center">
                                 <i class="fas fa-chevron-right me-2" style="font-size: 0.75rem;"></i>
-                                <span>Katalog UMKM</span>
+                                <span>Katalog Ekraf</span>
                             </a>
                         </li>
-                        <li class="mb-2">
+                        {{-- <li class="mb-2">
                             <a href="{{ route('map.index') }}" class="text-white text-decoration-none d-inline-flex align-items-center">
                                 <i class="fas fa-chevron-right me-2" style="font-size: 0.75rem;"></i>
                                 <span>Peta UMKM</span>
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="mb-2">
                             <a href="{{ route('blog.index') }}" class="text-white text-decoration-none d-inline-flex align-items-center">
                                 <i class="fas fa-chevron-right me-2" style="font-size: 0.75rem;"></i>

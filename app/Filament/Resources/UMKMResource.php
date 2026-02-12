@@ -5,16 +5,18 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\UMKMResource\Pages;
 use App\Filament\Resources\UMKMResource\RelationManagers;
 use App\Models\UMKM;
+use App\Imports\UMKMImport;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Infolists\Components;
+use Filament\Infolists\Infolist;
 use Filament\Resources\Resource;
+use Filament\Support\Enums\FontWeight;
 use Filament\Tables;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use Filament\Support\Enums\FontWeight;
-use Filament\Infolists\Infolist;
-use Filament\Infolists\Components;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class UMKMResource extends Resource
@@ -141,7 +143,19 @@ class UMKMResource extends Resource
                                         })
                                         ->searchable()
                                         ->prefixIcon('heroicon-o-calendar')
-                                        ->helperText('Tahun pertama kali usaha didirikan'),
+                                        ->helperText('Tahun pertama kali usaha didirikan')
+                                        ->rules([
+                                            'required',
+                                            'integer',
+                                            'min:1900',
+                                            'max:' . date('Y')
+                                        ])
+                                        ->validationMessages([
+                                            'required' => 'Tahun berdiri wajib diisi.',
+                                            'integer' => 'Tahun berdiri harus berupa angka tahun yang valid.',
+                                            'min' => 'Tahun berdiri tidak boleh kurang dari 1900.',
+                                            'max' => 'Tahun berdiri tidak boleh lebih dari tahun sekarang.'
+                                        ]),
 
                                     Forms\Components\Textarea::make('deskripsi')
                                         ->label('Deskripsi Usaha')
@@ -446,9 +460,9 @@ class UMKMResource extends Resource
                     ->label('Berdiri')
                     ->sortable()
                     ->icon('heroicon-o-calendar')
-                    ->date('Y')
+                    ->formatStateUsing(fn (UMKM $record): string => $record->tahun_berdiri)
                     ->description(fn (UMKM $record): string =>
-                        now()->year - \Carbon\Carbon::parse($record->tahun_berdiri)->year . ' tahun'
+                        now()->year - $record->tahun_berdiri . ' tahun'
                     )
                     ->toggleable(),
 
@@ -749,6 +763,7 @@ class UMKMResource extends Resource
             ->deferLoading()
             ->persistSearchInSession()
             ->persistSortInSession()
+
             ->persistColumnSearchesInSession();
     }
 

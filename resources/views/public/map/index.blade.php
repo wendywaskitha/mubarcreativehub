@@ -35,7 +35,7 @@
                             <input type="text"
                                    class="form-control ps-4"
                                    id="search-umkm"
-                                   placeholder="Ketik nama UMKM..."
+                                   placeholder="Ketik nama Pelaku Ekraf..."
                                    style="border-radius: 10px; border: 2px solid #e5e7eb;">
                             <i class="fas fa-search position-absolute text-muted"
                                style="left: 14px; top: 50%; transform: translateY(-50%); font-size: 0.875rem;"></i>

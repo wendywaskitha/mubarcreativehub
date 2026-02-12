@@ -16,7 +16,7 @@
                     </li>
                     <li class="breadcrumb-item">
                         <a href="{{ route('umkm.index') }}" class="text-decoration-none" style="color: var(--primary-start);">
-                            Katalog UMKM
+                            Katalog Ekraf
                         </a>
                     </li>
                     <li class="breadcrumb-item">
@@ -150,12 +150,6 @@
                             </button>
                         </div>
 
-                        <!-- Price -->
-                        <div class="mb-3">
-                            <h2 class="fw-bold mb-1" style="color: #10b981; font-size: 2.5rem;">
-                                Rp {{ number_format($produk->harga, 0, ',', '.') }}
-                            </h2>
-                        </div>
 
                         <!-- Tags -->
                         @if($produk->tags)
@@ -216,7 +210,7 @@
 
                     <!-- Action Buttons -->
                     <div class="d-grid gap-3">
-                        <a href="https://wa.me/{{ formatPhoneNumber($produk->umkm->no_telp) }}?text={{ createWhatsAppMessage('Halo '.$produk->umkm->nama_usaha.', saya tertarik dengan *'.$produk->nama_produk.'* seharga Rp'.number_format($produk->harga).'. Apakah masih tersedia?') }}"
+                        <a href="https://wa.me/{{ formatPhoneNumber($produk->umkm->no_telp) }}?text={{ createWhatsAppMessage('Halo '.$produk->umkm->nama_usaha.', saya tertarik dengan *'.$produk->nama_produk.'*. Apakah masih tersedia?') }}"
                            target="_blank"
                            class="btn btn-success btn-lg"
                            style="border-radius: 12px; padding: 1rem 2rem; font-weight: 600;">
@@ -277,7 +271,7 @@
                             <div class="rounded-circle bg-white bg-opacity-20 p-2 me-2">
                                 <i class="fas fa-store fs-5"></i>
                             </div>
-                            <h2 class="h6 mb-0 fw-bold">Informasi UMKM</h2>
+                            <h2 class="h6 mb-0 fw-bold">Informasi Pelaku Ekraf</h2>
                         </div>
                         <p class="mb-0 small opacity-90">Produk ini dijual oleh</p>
                     </div>
@@ -474,7 +468,7 @@
                             <i class="fas fa-box-open fa-4x text-muted opacity-25"></i>
                         </div>
                         <h6 class="text-muted mb-2">Tidak Ada Produk Lain</h6>
-                        <p class="text-muted small mb-0">Saat ini hanya ada 1 produk dari UMKM ini</p>
+                        <p class="text-muted small mb-0">Saat ini hanya ada 1 produk dari Pelaku Ekraf ini</p>
                     </div>
                     @endif
                 </div>

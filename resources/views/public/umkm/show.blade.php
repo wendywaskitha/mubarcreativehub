@@ -110,23 +110,6 @@
                                             <div class="d-flex align-items-start">
                                                 <div class="info-icon me-2">
                                                     <div class="rounded-circle d-flex align-items-center justify-content-center"
-                                                         style="width: 36px; height: 36px; background: #fef3c7;">
-                                                        <i class="fas fa-users" style="color: #d97706; font-size: 0.875rem;"></i>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <small class="text-muted d-block">Tenaga Kerja</small>
-                                                    <p class="mb-0 fw-bold" style="color: var(--primary-start);">{{ $umkm->jumlah_tenaga_kerja }} Orang</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-6">
-                                        <div class="info-item">
-                                            <div class="d-flex align-items-start">
-                                                <div class="info-icon me-2">
-                                                    <div class="rounded-circle d-flex align-items-center justify-content-center"
                                                          style="width: 36px; height: 36px; background: #dbeafe;">
                                                         <i class="fas fa-building" style="color: var(--primary-start); font-size: 0.875rem;"></i>
                                                     </div>
@@ -138,25 +121,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    @if($umkm->omset_tahun)
-                                    <div class="col-12">
-                                        <div class="info-item mt-2 p-3" style="background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%); border-radius: 10px;">
-                                            <div class="d-flex align-items-center">
-                                                <div class="info-icon me-3">
-                                                    <div class="rounded-circle d-flex align-items-center justify-content-center"
-                                                         style="width: 40px; height: 40px; background: white;">
-                                                        <i class="fas fa-chart-line text-success"></i>
-                                                    </div>
-                                                </div>
-                                                <div>
-                                                    <small class="text-muted d-block">Omset per Tahun</small>
-                                                    <p class="mb-0 fw-bold h5 text-success">Rp {{ number_format($umkm->omset_tahun, 0, ',', '.') }}</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -258,9 +222,6 @@
                                     <h5 class="card-title fw-bold mb-2" style="color: var(--primary-start); font-size: 1rem;">
                                         {{ $produk->nama_produk }}
                                     </h5>
-                                    <p class="card-text fw-bold h5 mb-3 text-success">
-                                        Rp {{ number_format($produk->harga, 0, ',', '.') }}
-                                    </p>
                                     <a href="{{ route('produk.show', $produk->id) }}"
                                        class="btn btn-primary btn-sm w-100"
                                        style="border-radius: 8px; padding: 0.625rem; font-weight: 500;">
